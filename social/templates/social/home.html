@@ -11,6 +11,7 @@
 <body>
 <font face="Roboto">
 	<h1>Oppose Me</h1>
+	<center><h3>Hello {{user.username}}!</h3></center>
 	<script type="text/javascript" src="{% static 'social/angular.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'social/home.js' %}"></script>
 	<div class="main">	
@@ -43,7 +44,7 @@
 				<li>The game ends if you click on an incorrect tile or time exceeds 2s.</li>
 				<li>More features will be added soon.</li>
 			</ul>
-			<a href="game.html"><span class="start">Start</span></a>
+			<a href="{% url 'game' %}"><span class="start">Start</span></a>
 		</div>
 	</div>
 	</font>

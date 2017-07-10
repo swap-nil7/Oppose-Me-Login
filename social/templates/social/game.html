@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html ng-app="game">
+<head>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'social/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'social/game.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+<body ng-controller="GameController">
+	<script type="text/javascript" src="{% static 'social/angular.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'social/game.js' %}"></script>
+	<h1> Oppose Me </h1>
+	<h3> Welcome {{user.username}}! </h3>
+	<div class="container">
+	<div class="main">
+		<h2>Game Settings</h2>
+		<section ng-controller="PanelController as panel">
+			<ul class = "nav nav-pills">
+				<li ng-class="{ active:panel.isSelected(1) }">
+					<a href ng-click="panel.selectTab(1)">Play Game</a>
+				</li>
+				<li ng-class="{ active:panel.isSelected(2) }">
+					<a href ng-click="panel.selectTab(2)">Set Difficulty</a>
+				</li>
+			</ul>
+			<div class="panel" ng-show="panel.isSelected(2)">
+				<h4>Set Difficulty</h4>
+				<ul>
+					<li><p class="content" ng-click="dimension(3)">Noobs(3*3)</p></li>
+					<li><p class="content" ng-click="dimension(5)">Medium(5*5)</p></li>
+					<li><p class="content" ng-click="dimension(7)">Expert(7*7)</p></li>
+				</ul>
+			</div>
+			<div class="panel" ng-show="panel.isSelected(1)">
+				<h4>Play Game</h4>
+				<p class="content" ng-if="scoreboard">Score: {<score>}</p>
+				<p class="content" ng-if="loss">Wrong tile! Your score is {<score>}.</p>
+				<p class="content" ng-if="times">You're late! Your score is {<score>}.</p>
+				<button ng-if="!started" ng-click="start()">Start</button>
+			</div>
+		</section>
+	</div>
+	<div class="inner">
+		<div class="board">
+	    <table class="board" border=1 bordercolor="white">
+	        <tr ng-repeat="row in board.rows">
+	            <td ng-repeat="spot in row.spots" ng-click='go(spot)'>
+				    <img ng-if="spot.content=='empty'" src="{% static 'social/plain.jpg' %}" height="60" width="60">
+				    <img ng-if="spot.content=='good'" src="{% static 'social/good.jpg' %}" height="60" width="60">
+				    <img ng-if="spot.content=='bad'" src="{% static 'social/bad.jpg' %}" height="60" width="60">
+				</td>
+	        </tr>
+	    </table>
+	    </div>
+    </div>
+    </div>
+    </body>
+</html>

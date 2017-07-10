@@ -1,0 +1,59 @@
+body{
+    background: linear-gradient(white, lightblue);
+    overflow: hidden;
+    font-family: Roboto;
+}
+
+h1{
+    color: black;
+    text-align: center;
+    text-shadow: 2px 2px lightblue;
+    text-decoration: underline;
+    font-weight: normal;
+}
+
+h2{
+    text-align: center;
+    font-weight: normal;
+}
+
+h3{
+    text-align: center;
+    color: black;
+    font-size: 1.25em;
+    text-shadow: 0.5px 0.5px white;
+}
+
+.container{
+    width: 90%;
+}
+
+.main{
+    display: inline-block;
+    width: 50%;
+    float: left;
+}
+
+.inner{
+    display: inline-block;
+    width: 50%;
+    float: right;
+}
+
+.board{
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 300px;
+}
+
+h4{
+    padding-left: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.content{
+    padding-left: 10px;
+    font-size: 1.25em;
+    cursor: pointer;
+}

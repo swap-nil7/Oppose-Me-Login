@@ -8,6 +8,9 @@ def index(request):
 def home(request):
 	return render(request, 'social/home.html')
 
+def game(request):
+	return render(request, 'social/game.html')
+
 @login_required
 
 def home(request):
