@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^social/', include('social.urls')),
     url(r'^accounts/', include('social.urls')),
     url(r'^admin/', admin.site.urls),
+    url(r'^', include('social.urls')),
 ]
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
