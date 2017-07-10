@@ -2,9 +2,10 @@
 
 	var app = angular.module('game', [ ]);
 	app.config(function($interpolateProvider){
-		$interpolateProvider.startSymbol('{<');
-    	$interpolateProvider.endSymbol('>}');
+		$interpolateProvider.startSymbol('[[');
+    	$interpolateProvider.endSymbol(']]');
 	});
+
 	var row = 0;
 	var column = 0;
 	var dim = 5;

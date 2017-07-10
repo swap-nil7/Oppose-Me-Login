@@ -1,7 +1,7 @@
 <!DOCTYPE html>
+{% load static %}
 <html ng-app="game">
 <head>
-	{% load static %}
 	<link rel="stylesheet" type="text/css" href="{% static 'social/bootstrap.min.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'social/game.css' %}">
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
@@ -33,9 +33,9 @@
 			</div>
 			<div class="panel" ng-show="panel.isSelected(1)">
 				<h4>Play Game</h4>
-				<p class="content" ng-if="scoreboard">Score: {<score>}</p>
-				<p class="content" ng-if="loss">Wrong tile! Your score is {<score>}.</p>
-				<p class="content" ng-if="times">You're late! Your score is {<score>}.</p>
+				<p class="content" ng-if="scoreboard">Score: [[score]]</p>
+				<p class="content" ng-if="loss">Wrong tile! Your score is [[score]].</p>
+				<p class="content" ng-if="times">You're late! Your score is [[score]].</p>
 				<button ng-if="!started" ng-click="start()">Start</button>
 			</div>
 		</section>
