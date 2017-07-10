@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="index">
+<head>
+	<title></title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static 'social/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'social/home.css' %}">
+	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+</head>
+</head>
+<body>
+<font face="Roboto">
+	<h1>Oppose Me</h1>
+	<script type="text/javascript" src="{% static 'social/angular.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'social/home.js' %}"></script>
+	<div class="main">	
+		<div class="left">
+			<h2>Game Stats</h2>
+			<section ng-controller="PanelController as panel">
+				<ul class = "nav nav-pills">
+					<li ng-class="{ active:panel.isSelected(1) }">
+						<a href ng-click="panel.selectTab(1)">Your stats</a>
+					</li>
+					<li ng-class="{ active:panel.isSelected(2) }">
+						<a href ng-click="panel.selectTab(2)">Leaderboard</a>
+					</li>
+				</ul>
+				<div class="panel" ng-show="panel.isSelected(1)">
+					<h4>Your Stats</h4>
+					<p class="content">Stats not available</p>
+				</div>
+				<div class="panel" ng-show="panel.isSelected(2)">
+					<h4>Leaderboard</h4>
+					<p class="content">Leaderboard not available</p>
+				</div>
+			</section>
+		</div>
+		<div class="right">
+			<h2>Instructions</h2>
+			<ul>
+				<li>As the game commences, you'll get to see a black or a white tile. If the colour of tile is black, you need to click on the tile whose centre is the reflection of the centre of the given tile placing mirror at the centre of the board. Else if the colour of the tile is white, you need to click on the same tile.</li>
+				<li>A maximum time of 2s is alloted to click on the tile. The faster you're, the higher score you get.</li>
+				<li>The game ends if you click on an incorrect tile or time exceeds 2s.</li>
+				<li>More features will be added soon.</li>
+			</ul>
+			<a href="game.html"><span class="start">Start</span></a>
+		</div>
+	</div>
+	</font>
+</body>
+</html>
