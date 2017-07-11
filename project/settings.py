@@ -108,7 +108,7 @@ AUTHENTICATION_BACKENDS = (
     'social_core.backends.github.GithubOAuth2',
     'social_core.backends.twitter.TwitterOAuth',
     'social_core.backends.facebook.FacebookOAuth2',
-
+    'social_core.backends.google.GoogleOAuth2',
     'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -116,6 +116,8 @@ SOCIAL_AUTH_GITHUB_KEY = '54c8ee4952e1abf4fb66'
 SOCIAL_AUTH_GITHUB_SECRET = '835b24799404761598821599d89ff92c1c0b8d4c'
 SOCIAL_AUTH_FACEBOOK_KEY = '449205448812071'  
 SOCIAL_AUTH_FACEBOOK_SECRET = '7f84a45536fff47b68704c25211c573b'
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '901039590380-achnlm61isr1qf0cagmv0q0ss26na9vl.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'tZ7ZVAGxc78tieRE2evBQI_6'
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
