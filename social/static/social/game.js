@@ -5,7 +5,6 @@
 		$interpolateProvider.startSymbol('[[');
     	$interpolateProvider.endSymbol(']]');
 	});
-
 	var row = 0;
 	var column = 0;
 	var dim = 5;
@@ -21,6 +20,7 @@
 	});
 
 	app.controller('GameController', function($scope){
+		$scope.highscore = 0;
 		$scope.board = createBoard(dim);
 		$scope.started = false;
 
@@ -47,17 +47,23 @@
 				if(y){
 					clock1 = new Date().getTime();
 					if(clock1-clock<2000){
-						$scope.score+=(2000-clock1+clock)/1000;
-						$scope.score=Math.round($scope.score*1000)/1000;
+						$scope.score+=((2000-clock1+clock)/1000);
+						$scope.score=(Math.round($scope.score*1000)/1000);
 						clock = clock1;
 					}
 					else{
+						if(high($scope.score, $scope.highscore)){
+							$scope.highscore = $scope.score;
+						}
 						$scope.times = true;
 						$scope.scoreboard = false;
 						$scope.started = false;
 					}
 				}
 				else{
+					if(high($scope.score, $scope.highscore)){
+						$scope.highscore = $scope.score;
+					}
 					$scope.loss = true;
 					$scope.scoreboard = false;
 					$scope.started = false;
@@ -68,6 +74,11 @@
 		};
 	});
 
+	function high(score, highscore){
+		if(score>highscore){
+			return true;
+		}
+	}
 
 	function check(spot, board){
 		var spotm = getSpot(board, row, column);
