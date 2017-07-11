@@ -4,11 +4,11 @@
 </head>
 <body>
 	<link rel="stylesheet" type="text/css" href="{% static 'social/index.css' %}">
+	<h1>Login Portal</h1><br>
 	<div class = "main">
-		<h1>Login Potal</h1>
-		<a href="{% url 'social:begin' 'github' %}">Login with Github</a><br>
-		<a href="{% url 'social:begin' 'facebook' %}">Login with Facebook</a><br>
-		<a href="{% url 'social:begin' 'google-oauth2' %}">Login with Google</a><br>	
+		<a href="{% url 'social:begin' 'github' %}"><img src="{% static 'social/github.png' %}" width=120 height=80></a> &nbsp &nbsp &nbsp &nbsp 
+		<a href="{% url 'social:begin' 'facebook' %}"><img src="{% static 'social/facebook.png' %}" width=100 height=85></a> &nbsp &nbsp &nbsp &nbsp 
+		<a href="{% url 'social:begin' 'google-oauth2' %}"><img src="{% static 'social/google.png' %}" width=100 height=80></a>	
 	</div>
 </body>
 </html>
