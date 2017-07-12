@@ -84,10 +84,10 @@
 					score : score,
 				},
 				success: function(){
-					alert('sent score');
+					console.log('sent score');
 				},
 				error: function(e){
-					alert(e);
+					console.log(e);
 				},
 			});
 		};

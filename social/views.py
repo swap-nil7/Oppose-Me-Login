@@ -16,6 +16,7 @@ def game(request):
 def save(request):
 	user = request.POST['user']
 	score = request.POST['score']
+	stat = Stats.objects.create(username = user, score = score)
 	return HttpResponse("")
 	
 
