@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% csrf_token %}
 <html ng-app="game">
 <head>
 	<link rel="stylesheet" type="text/css" href="{% static 'social/bootstrap.min.css' %}">
@@ -9,10 +10,14 @@
 <body ng-controller="GameController">
 	<script type="text/javascript" src="{% static 'social/angular.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'social/game.js' %}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var user = "{{user.username}}";
+	</script>
 	<h1> Oppose Me </h1>
 	<h3> Welcome {{user.username}}! </h3>
 	<div class="container">
-	<div class="main">
+	<div class="main" ng-init>
 		<h2>Game Settings</h2>
 		<section ng-controller="PanelController as panel">
 			<ul class = "nav nav-pills">
@@ -39,7 +44,7 @@
 				<p class="content" ng-if="times">You're late! Your score is [[score]].</p>
 				<button ng-if="!started" ng-click="start()">Start</button>	
 			</div>
-			<a href = "{% url 'home' %}"><div class="panel"><h4>Exit</h4>(Your highscore will be saved)</div></a>
+			<a href ="" ng-click="save()"><div class="panel"><h4>Exit</h4>(Your highscore will be saved)</div></a>
 		</section>
 	</div>
 	<div class="inner">

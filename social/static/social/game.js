@@ -1,5 +1,4 @@
 (function(){
-
 	var app = angular.module('game', [ ]);
 	app.config(function($interpolateProvider){
 		$interpolateProvider.startSymbol('[[');
@@ -21,6 +20,7 @@
 
 	app.controller('GameController', function($scope){
 		$scope.highscore = 0;
+		$scope.user = user;
 		$scope.board = createBoard(dim);
 		$scope.started = false;
 
@@ -72,6 +72,28 @@
 				createRandom($scope.board);
 			}
 		};
+
+		$scope.save = function(){
+			var score = $scope.highscore;
+			var user = $scope.user;
+			console.log(user);
+			console.log(score);
+			$.ajax({
+				method: "POST",
+				url: "/save",
+				data: {
+					user : user,
+					score : score,
+				},
+				success: function(){
+					alert('sent score');
+				},
+				error: function(e){
+					console.log(e);
+				},
+			});
+		};
+
 	});
 
 	function high(score, highscore){
