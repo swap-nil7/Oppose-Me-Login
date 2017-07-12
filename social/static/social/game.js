@@ -76,8 +76,6 @@
 		$scope.save = function(){
 			var score = $scope.highscore;
 			var user = $scope.user;
-			console.log(user);
-			console.log(score);
 			$.ajax({
 				method: "POST",
 				url: "/save",
@@ -89,7 +87,7 @@
 					alert('sent score');
 				},
 				error: function(e){
-					console.log(e);
+					alert(e);
 				},
 			});
 		};

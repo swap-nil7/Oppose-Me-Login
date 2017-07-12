@@ -6,5 +6,5 @@ urlpatterns = [
     url(r'^$', views.index, name='index'),
     url(r'^profile/$', views.home, name='home'),
     url(r'^game/$', views.game, name='game'),
-    url(r'^save$', csrf_exempt(views.save), name='save'),
+    url(r'^save$', views.save, name='save'),
 ]
