@@ -6,9 +6,14 @@ from .models import Stats, Leaderboard
 
 def index(request):
 	return render(request, 'social/index.html')
-
+@login_required
 def home(request):
-	return render(request, 'social/home.html')
+	user = request.user.username
+	scores = Stats.objects.filter(username=user).order_by('-score')[:5]
+	context = {
+	'scores': scores,
+	}
+	return render(request, 'social/home.html', context)
 
 def game(request):
 	return render(request, 'social/game.html')
@@ -18,13 +23,11 @@ def save(request):
 	score = request.POST['score']
 	stat = Stats.objects.create(username = user, score = score)
 	return HttpResponse("")
-	
-def showplayer(request):
-	return HttpResponse("")
 
-@login_required
 
-def home(request):
-    return render(request, 'social/home.html')
+#@login_required
+
+#def home(request):
+#    return render(request, 'social/home.html')
 
 # Create your views here.
