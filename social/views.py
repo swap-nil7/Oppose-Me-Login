@@ -19,7 +19,8 @@ def save(request):
 	stat = Stats.objects.create(username = user, score = score)
 	return HttpResponse("")
 	
-
+def showplayer(request):
+	return HttpResponse("")
 
 @login_required
 

@@ -83,12 +83,6 @@
 					user : user,
 					score : score,
 				},
-				success: function(){
-					console.log('sent score');
-				},
-				error: function(e){
-					console.log(e);
-				},
 			});
 		};
 

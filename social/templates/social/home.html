@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% csrf_token %}
 <html ng-app="index">
 <head>
 	<title></title>
@@ -14,6 +15,7 @@
 	<center><h3>Hello {{user.username}}!</h3></center>
 	<script type="text/javascript" src="{% static 'social/angular.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'social/home.js' %}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<div class="main">	
 		<div class="left">
 			<h2>Game Stats</h2>
@@ -48,5 +50,29 @@
 		</div>
 	</div>
 	</font>
+	<script type="text/javascript">
+		var user = "{{user.username}}";
+		function getCookie(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie != '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = jQuery.trim(cookies[i]);
+		            if (cookie.substring(0, name.length + 1) == (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		$.ajaxSetup({
+		    beforeSend: function(xhr, settings) {
+		        if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+		            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+		        }
+		    }
+		});
+	</script>
 </body>
 </html>
