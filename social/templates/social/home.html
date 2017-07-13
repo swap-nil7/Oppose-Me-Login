@@ -38,7 +38,11 @@
 				</div>
 				<div class="panel" ng-show="panel.isSelected(2)">
 					<h4>Leaderboard</h4>
-					<p class="content">Leaderboard not available</p>
+					<ol>
+					{% for high in highs %}
+						<li class ="content">{{ high.username }}: {{ high.score }}</li>
+					{% endfor %}
+					</ol>
 				</div>
 			</section>
 		</div>
