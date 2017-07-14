@@ -2,10 +2,11 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse
-from .models import Stats, Leaderboard
+from .models import Stats
 
 def index(request):
 	return render(request, 'social/index.html')
+
 @login_required
 def home(request):
 	user = request.user.username
@@ -25,6 +26,10 @@ def save(request):
 	score = request.POST['score']
 	stat = Stats.objects.create(username = user, score = score)
 	return HttpResponse("")
+
+def logout(request):
+	auth_logout(request)
+	return render_to_response('social/home.html', {}, RequestContext(request))
 
 
 #@login_required
