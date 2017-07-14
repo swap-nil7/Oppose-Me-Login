@@ -29,9 +29,15 @@
 					</li>
 				</ul>
 				<div class="panel" ng-show="panel.isSelected(1)">
-					<h4>Your Stats</h4>
+					<h4>Your topscores</h4>
 					<ol>
 					{% for score in scores %}
+						<li class ="content">{{ score.score }}</li>
+					{% endfor %}
+					</ol>
+					<h4>Your Recent Scores</h4>
+					<ol>
+					{% for score in recent %}
 						<li class ="content">{{ score.score }}</li>
 					{% endfor %}
 					</ol>
