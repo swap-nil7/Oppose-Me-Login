@@ -7,4 +7,5 @@ urlpatterns = [
     url(r'^profile/$', views.home, name='home'),
     url(r'^game/$', views.game, name='game'),
     url(r'^save$', views.save, name='save'),
+    url(r'^logout$', views.logout, name='save'),
 ]

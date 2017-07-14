@@ -9,10 +9,13 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 </head>
 </head>
-<body>
+<body ng-controller="MainController">
 <font face="Roboto">
+	<header>
 	<h1>Oppose Me</h1>
-	<center><h3>Hello {{user.username}}!</h3></center>
+	<img ng-src="{% static 'social/logout.png' %}" ng-click="logout()">
+	</header>
+	<h3>Hello {{user.username}}!</h3>
 	<script type="text/javascript" src="{% static 'social/angular.min.js' %}"></script>
 	<script type="text/javascript" src="{% static 'social/home.js' %}"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

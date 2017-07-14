@@ -2,6 +2,7 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.contrib.auth import logout as auth_logout
 from .models import Stats
 
 def index(request):
@@ -31,7 +32,8 @@ def save(request):
 
 def logout(request):
 	auth_logout(request)
-	return render_to_response('social/home.html', {}, RequestContext(request))
+	return render(request, 'social/index.html')
+
 
 
 #@login_required
