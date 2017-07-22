@@ -21,15 +21,18 @@ def home(request):
 	}
 	return render(request, 'social/home.html', context)
 
+@login_required
 def game(request):
 	return render(request, 'social/game.html')
 
+@login_required
 def save(request):
 	user = request.POST['user']
 	score = request.POST['score']
 	stat = Stats.objects.create(username = user, score = score)
 	return HttpResponse("")
 
+@login_required
 def logout(request):
 	auth_logout(request)
 	return render(request, 'social/index.html')
