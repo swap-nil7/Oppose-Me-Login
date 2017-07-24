@@ -25,9 +25,11 @@
 		$scope.started = false;
 
 		$scope.dimension = function(num){
-			dim = num;
-			clearBoard($scope.board);
-			$scope.board = createBoard(dim);
+			if(!$scope.started){
+				dim = num;
+				clearBoard($scope.board);
+				$scope.board = createBoard(dim);
+			}
 		}
 
 		$scope.start = function(){
@@ -50,26 +52,33 @@
 						$scope.score+=((2000-clock1+clock)/1000);
 						$scope.score=(Math.round($scope.score*1000)/1000);
 						clock = clock1;
+						clearSpot($scope.board);
+						createRandom($scope.board);
 					}
 					else{
 						if(high($scope.score, $scope.highscore)){
 							$scope.highscore = $scope.score;
 						}
+						clearSpot($scope.board);
 						$scope.times = true;
 						$scope.scoreboard = false;
 						$scope.started = false;
+						alert('Your scored ' +  $scope.score);
 					}
 				}
 				else{
 					if(high($scope.score, $scope.highscore)){
 						$scope.highscore = $scope.score;
 					}
+					clearSpot($scope.board);
 					$scope.loss = true;
 					$scope.scoreboard = false;
 					$scope.started = false;
+					alert('Your scored ' +  $scope.score);
 				}
-				clearSpot($scope.board);
-				createRandom($scope.board);
+			}
+			else{
+				alert('Hit start to start the game!')
 			}
 		};
 
